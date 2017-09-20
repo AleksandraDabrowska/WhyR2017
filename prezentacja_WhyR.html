@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <meta name="author" content="Aleksandra Dąbrowska, Alicja Gosiewska" />
+  <meta name="author" content="Aleksandra Dąbrowska" />
+  <meta name="author" content="Alicja Gosiewska" />
   <title>MLExpResso – NGS, Metylacja, Expresja, R i sporo kawy</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -60,7 +61,7 @@
 
     <style type="text/css">code{white-space: pre;}</style>
 
-    <link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%234a3c89%3B%0A%7D%0A%2Ereveal%20h1%2C%0A%2Ereveal%20h2%2C%0A%2Ereveal%20h3%2C%0A%2Ereveal%20h4%2C%0A%2Ereveal%20h5%2C%0A%2Ereveal%20h6%20%7B%0Amargin%3A%200%200%2020px%200%3B%0Acolor%3A%20%23fff%3B%0Afont%2Dfamily%3A%20Gill%20Sans%20MT%3B%0Afont%2Dweight%3A%20normal%3B%0Aline%2Dheight%3A%201%2E2%3B%0Aletter%2Dspacing%3A%20%2D0%2E03em%3B%0Atext%2Dtransform%3A%20none%3B%0Atext%2Dshadow%3A%20none%3B%0Aword%2Dwrap%3A%20break%2Dword%3B%0A%7D%0A" rel="stylesheet" />
+    <link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%234a3c89%3B%0A%7D%0A%2Ereveal%20h1%2C%0A%2Ereveal%20h2%2C%0A%2Ereveal%20h3%2C%0A%2Ereveal%20h4%2C%0A%2Ereveal%20h5%2C%0A%2Ereveal%20h6%7B%0Amargin%3A%200%200%2020px%200%3B%0Acolor%3A%20%23fff%3B%0Afont%2Dfamily%3A%20Gill%20Sans%20MT%3B%0Afont%2Dweight%3A%20normal%3B%0Aline%2Dheight%3A%201%2E2%3B%0Aletter%2Dspacing%3A%20%2D0%2E03em%3B%0Atext%2Dtransform%3A%20none%3B%0Atext%2Dshadow%3A%20none%3B%0Aword%2Dwrap%3A%20break%2Dword%3B%0A%7D%0A%2Ereveal%20h1%20%7B%0Afont%2Dsize%3A%202%2E5em%3B%20%7D%0A%2Ereveal%20h2%20%7B%0Afont%2Dsize%3A%202em%3B%20%7D%0A%2Ereveal%20h3%20%7B%0Afont%2Dsize%3A%201%2E5em%3B%20%7D%0A%2Ereveal%20h4%20%7B%0Afont%2Dsize%3A%201em%3B%20%7D%0A%2Ereveal%20h1%20%7B%0Atext%2Dshadow%3A%20none%3B%20%7D%0A%2Ereveal%20p%20%7B%0Amargin%3A%2020px%200%3B%0Aline%2Dheight%3A%201%2E3%3B%20color%3A%20%23fff%3B%7D%0A%2Ereveal%20a%20%7B%0Acolor%3A%20%23ffffff%3B%0Atext%2Ddecoration%3A%20none%3B%0A%2Dwebkit%2Dtransition%3A%20color%20%2E15s%20ease%3B%0A%2Dmoz%2Dtransition%3A%20color%20%2E15s%20ease%3B%0Atransition%3A%20color%20%2E15s%20ease%3B%20%7D%0A%2Ereveal%20a%3Ahover%20%7B%0Acolor%3A%20%238dcffc%3B%0Atext%2Dshadow%3A%20none%3B%0Aborder%3A%20none%3B%20%7D%0A%2Ereveal%20%2Eroll%20span%3Aafter%20%7B%0Acolor%3A%20%23fff%3B%0Abackground%3A%20%23068de9%3B%20%7D%0A%2Ereveal%20ol%2C%0A%2Ereveal%20dl%2C%0A%2Ereveal%20ul%20%7B%0Adisplay%3A%20inline%2Dblock%3B%0Atext%2Dalign%3A%20left%3B%0Amargin%3A%200%200%200%201em%3B%20color%3A%20%23ffffff%7D%0A" rel="stylesheet" />
 
 <!-- Printing and PDF exports -->
 <script id="paper-css" type="application/dynamic-css">
@@ -451,11 +452,12 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
 <section>
     <h1 class="title">MLExpResso – NGS, Metylacja, Expresja, R i sporo kawy</h1>
-    <h2 class="author">Aleksandra Dąbrowska, Alicja Gosiewska</h2>
-    <h3 class="date">29 Września, 2017</h3>
+    <h2 class="author">Aleksandra Dąbrowska</h2>
+    <h2 class="author">Alicja Gosiewska</h2>
+    <h3 class="date">29.09.2017</h3>
 </section>
 
-<section><section id="grupa-mi2-i-mi2-datalab" class="titleslide slide level1"><h1>Grupa MI^2 i MI^2 DataLab</h1></section></section>
+<section><section id="grupa-mi2-i-mi2-datalab" class="titleslide slide level1"><h1>Grupa MI<sup>2</sup> i MI<sup>2</sup> DataLab</h1></section></section>
 <section><section id="pakiet" class="titleslide slide level1"><h1>Pakiet</h1></section><section id="m" class="slide level2">
 <h1>M</h1>
 </section><section id="ml" class="slide level2">
@@ -467,9 +469,29 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section><section id="mlexpresso" class="slide level2">
 <h1>MLExpResso</h1>
 </section></section>
-<section><section id="podstawowe-pojecia" class="titleslide slide level1"><h1>Podstawowe pojęcia</h1></section></section>
-<section><section id="wywoania-funkcji" class="titleslide slide level1"><h1>Wywołania funkcji</h1></section></section>
-<section><section id="co-dalej" class="titleslide slide level1"><h1>Co dalej?</h1></section></section>
+<section><section id="terminologia-biologiczna" class="titleslide slide level1"><h1>Terminologia biologiczna</h1></section><section id="podstawowe-pojecia" class="slide level2">
+<h1>Podstawowe pojęcia</h1>
+<ul>
+<li class="fragment">Gen</li>
+<li class="fragment">Sonda CpG</li>
+<li class="fragment">Ekspresja genu</li>
+<li class="fragment">Metylacja DNA</li>
+</ul>
+</section></section>
+<section><section id="wywoania-funkcji" class="titleslide slide level1"><h1>Wywołania funkcji</h1></section><section id="ekspresja" class="slide level2">
+<h1>Ekspresja</h1>
+</section><section id="metylacja" class="slide level2">
+<h1>Metylacja</h1>
+</section><section id="integracja-ekspresji-i-metylacji" class="slide level2">
+<h1>Integracja ekspresji i metylacji</h1>
+</section></section>
+<section><section id="co-dalej" class="titleslide slide level1"><h1>Co dalej?</h1></section><section id="github" class="slide level2">
+<h1>Github</h1>
+<ul>
+<li class="fragment"><a href="https://github.com/geneticsMiNIng/MLGenSig/tree/master/MLExpResso" class="uri">https://github.com/geneticsMiNIng/MLGenSig/tree/master/MLExpResso</a></li>
+<li class="fragment"><a href="https://github.com/MI2DataLab" class="uri">https://github.com/MI2DataLab</a></li>
+</ul>
+</section></section>
     </div>
   </div>
 

@@ -1,15 +1,19 @@
 ---
 title: "MLExpResso – NGS, Metylacja, Expresja, R i sporo kawy"
-author: Aleksandra Dąbrowska, Alicja Gosiewska
-date: 29 Września, 2017
+author: 
+- Aleksandra Dąbrowska
+- Alicja Gosiewska
+date: 29.09.2017
 output: 
   revealjs::revealjs_presentation:
+    incremental: true
     pandoc_args: [
       "--css", "custom.css"
     ]
+    
 ---
   
-# Grupa MI^2 i MI^2 DataLab
+# Grupa MI<sup>2</sup> i MI<sup>2</sup> DataLab
   
 # Pakiet
 
@@ -19,14 +23,24 @@ output:
 ## MLExpR
 ## MLExpResso
 
-#Podstawowe pojęcia
-(slajd z DNA - może)
+#Terminologia biologiczna
+
+##Podstawowe pojęcia
+- Gen 
+- Sonda CpG
+- Ekspresja genu
+- Metylacja DNA
 
 #Wywołania funkcji
 (tabele, wykresy - to z cheat sheeta)
 
+##Ekspresja
+##Metylacja
+##Integracja ekspresji i metylacji
+
 #Co dalej?
 (cheat sheet, link do githuba z pakietem, githuba MI^2 DataLab)
 
+##Github
 - https://github.com/geneticsMiNIng/MLGenSig/tree/master/MLExpResso
 - https://github.com/MI2DataLab
