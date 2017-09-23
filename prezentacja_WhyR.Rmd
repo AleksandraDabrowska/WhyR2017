@@ -25,7 +25,7 @@ output:
 
 #Terminologia biologiczna
 
-##Podstawowe pojęcia
+##Podstawowe  pojęcia {data-background="img/DNA3.PNG"}
 - Gen 
 - Sonda CpG
 - Ekspresja genu
@@ -42,5 +42,5 @@ output:
 (cheat sheet, link do githuba z pakietem, githuba MI^2 DataLab)
 
 ##Github
-- https://github.com/geneticsMiNIng/MLGenSig/tree/master/MLExpResso
+- https://github.com/geneticsMiNIng/MLGenSig
 - https://github.com/MI2DataLab
