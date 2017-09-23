@@ -17,11 +17,11 @@ output:
   
 # Pakiet
 
-## M
-## ML
-## MLExp
-## MLExpR
-## MLExpResso
+## {data-background="prezentacje_biala_fioletowa/Slajd8.PNG"}
+## {data-background="prezentacje_biala_fioletowa/Slajd9.PNG"}
+## {data-background="prezentacje_biala_fioletowa/Slajd10.PNG"}
+## {data-background="prezentacje_biala_fioletowa/Slajd11.PNG"}
+## {data-background="prezentacje_biala_fioletowa/Slajd12.PNG"}
 
 #Terminologia biologiczna
 
