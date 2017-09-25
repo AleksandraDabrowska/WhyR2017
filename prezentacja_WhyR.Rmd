@@ -13,10 +13,11 @@ output:
     
 ---
   
-# Grupa MI<sup>2</sup> i MI<sup>2</sup> DataLab
+# Grupa MI<sup>2</sup> i MI<sup>2</sup> DataLab {data-background="img/MI2.PNG"}
   
-# Pakiet
+# NCN Opus grant 2016/21/B/ST6/02176
 
+# Nazwa
 ## {data-background="prezentacje_biala_fioletowa/Slajd8.PNG"}
 ## {data-background="prezentacje_biala_fioletowa/Slajd9.PNG"}
 ## {data-background="prezentacje_biala_fioletowa/Slajd10.PNG"}
