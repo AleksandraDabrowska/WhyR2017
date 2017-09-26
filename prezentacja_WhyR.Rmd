@@ -10,6 +10,7 @@ output:
     pandoc_args: [
       "--css", "custom.css"
     ]
+    self_contained: no
     
 ---
   
@@ -33,14 +34,18 @@ output:
 - Metylacja DNA
 
 #Wywołania funkcji
-(tabele, wykresy - to z cheat sheeta)
+
 
 ##Ekspresja
+<img src="img/ekspresja.PNG" style="background-color: #4a3c89;border:none;">
+
 ##Metylacja
+<img src="img/metylacja.PNG" style="background-color: #4a3c89;border:none;">
+
 ##Integracja ekspresji i metylacji
+<img src="img/comparison.PNG" style="background-color: #4a3c89;border:none;">
 
 #Co dalej?
-(cheat sheet, link do githuba z pakietem, githuba MI^2 DataLab)
 
 ##Github
 - https://github.com/geneticsMiNIng/MLGenSig

@@ -1,0 +1,75 @@
+
+========================================================
+author: 
+date:  
+width: 1400
+height: 900
+css: custom.css
+
+Grupa MI^2 i MI^2 DataLab
+========================================================
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/MI2a.PNG")
+
+```
+NCN Opus grant 2016/21/B/ST6/02176
+========================================================
+
+======================================================
+```{r, echo=FALSE}
+knitr::include_graphics("prezentacje_biala_fioletowa/Slajd8.PNG")
+```
+
+======================================================
+```{r, echo=FALSE}
+knitr::include_graphics("prezentacje_biala_fioletowa/Slajd9.PNG")
+```
+
+======================================================
+```{r, echo=FALSE}
+knitr::include_graphics("prezentacje_biala_fioletowa/Slajd10.PNG")
+```
+
+======================================================
+```{r, echo=FALSE}
+knitr::include_graphics("prezentacje_biala_fioletowa/Slajd11.PNG")
+```
+
+======================================================
+```{r, echo=FALSE}
+knitr::include_graphics("prezentacje_biala_fioletowa/Slajd12.PNG")
+```
+
+Podstawowe  pojęcia
+======================================================
+
+- Gen
+- Sonda CpG
+- Ekspresja genu
+- Metylacja DNA
+```{r, echo = FALSE}
+knitr::include_graphics("img/DNA3.PNG")
+```
+
+Ekspresja
+======================================================
+
+```{r, echo = FALSE}
+library(MLExpResso)
+library(MLExpRessoData)
+```
+
+```{r, echo=FALSE}
+head(BRCA_exp)[1:5,1:5]
+```
+
+```{r, echo=FALSE}
+condition_exp <- ifelse(BRCA_exp$SUBTYPE == "LumA", "LumA", "other")
+res_exp <- calculate_test(
+  data = BRCA_exp[,!(colnames(BRCA_exp) == "SUBTYPE")], 
+  condition = condition_exp, 
+  test = "lrt"
+)
+head(res_exp)
+```
