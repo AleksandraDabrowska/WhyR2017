@@ -47,6 +47,28 @@ output:
 
 #Co dalej?
 
-##Github
+##GitHub
 - https://github.com/geneticsMiNIng/MLGenSig
 - https://github.com/MI2DataLab
+
+
+
+# kody - czy dodawać zamiast obrazków?
+
+## duzy
+
+```{r}
+summary(iris)
+```
+
+## maly
+
+<small>
+
+```{r}
+summary(mtcars)
+```
+
+</small>
+
+
