@@ -6,6 +6,7 @@ author:
 date: 29.09.2017
 output: 
   revealjs::revealjs_presentation:
+    fig_width: 15
     incremental: true
     pandoc_args: [
       "--css", "custom.css"
@@ -13,6 +14,22 @@ output:
     self_contained: no
     
 ---
+
+```{r, echo = FALSE}
+library(knitr)
+opts_chunk$set(
+	comment = "",
+	fig.width = 30, 
+	message = FALSE,
+	warning = FALSE,
+	tidy.opts = list(
+		keep.blank.line = TRUE,	
+		width.cutoff = 500
+		),
+	options(width = 500),
+	eval = TRUE
+)
+```
   
 # Grupa MI<sup>2</sup> i MI<sup>2</sup> DataLab {data-background="img/MI2.PNG"}
   
@@ -53,22 +70,28 @@ output:
 
 
 
-# kody - czy dodawać zamiast obrazków?
+# Ekspresja
 
-## duzy
+## h
 
-```{r}
-summary(iris)
+```{r, echo = FALSE}
+library(MLExpResso)
+library(MLExpRessoData)
 ```
 
-## maly
-
-<small>
-
-```{r}
-summary(mtcars)
+```{r, echo=FALSE}
+head(BRCA_exp)[1:5,1:5]
 ```
 
-</small>
+```{r, echo=FALSE}
+condition_exp <- ifelse(BRCA_exp$SUBTYPE == "LumA", "LumA", "other")
+res_exp <- calculate_test(
+  data = BRCA_exp[,!(colnames(BRCA_exp) == "SUBTYPE")], 
+  condition = condition_exp, 
+  test = "lrt"
+)
+head(res_exp)
+```
+
 
 
