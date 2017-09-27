@@ -37,7 +37,7 @@ library(MLExpRessoData)
 load("data_pres.Rda")
 ```  
   
-# Grupa MI<sup>2</sup> i MI<sup>2</sup> DataLab {data-background="img/MI2.PNG"}
+# Grupa MI<sup>2</sup> i MI<sup>2</sup> DataLab {data-background="img/MI2_z_logiem.PNG"}
   
 # NCN Opus grant 2016/21/B/ST6/02176
 
@@ -56,31 +56,10 @@ load("data_pres.Rda")
 - Ekspresja genu
 - Metylacja DNA
 
-#Wywołania funkcji
 
+# Ekspresja
 
-##Ekspresja
-<img src="img/ekspresja.PNG" style="background-color: #4a3c89;border:none;">
-
-##Metylacja
-<img src="img/metylacja.PNG" style="background-color: #4a3c89;border:none;">
-
-##Integracja ekspresji i metylacji
-<img src="img/comparison.PNG" style="background-color: #4a3c89;border:none;">
-
-#Co dalej?
-
-##GitHub
-- https://github.com/geneticsMiNIng/MLGenSig
-- https://github.com/MI2DataLab
-
-
-
-# Wywołania funkcji
-
-## Ekspresja
-
-
+## Testy
 
 ```{r}
 head(BRCA_exp)[1:5,1:5]
@@ -104,8 +83,9 @@ head(res_exp)
 plot_volcano(res_exp, line = 0.05, names = 0.000000001, fold_line = 2)
 ```
 
-## Metylacja
+# Metylacja
 
+## Agregacja sond do genów
 ```{r}
 BRCA_met[1:5, 1:4]
 ```
@@ -116,3 +96,81 @@ BRCA_met_gen[1:5, 1:4]
 ```
 
 ## Methylation path
+
+```{r}
+plot_methylation_path(
+  data = BRCA_met, 
+  condition = condition_met, 
+  gene = 'CACNA1G', 
+  show.gene = TRUE, 
+  observ = TRUE
+)
+```
+
+## Testowanie
+```{r, eval = FALSE}
+calculate_test(
+  data = BRCA_met_gen, 
+  condition = condition_met,
+  test = "ttest"
+)
+```
+
+```{r, echo = FALSE}
+head(res_met)[1:5, 1:5]
+```
+
+# Integracja ekspresji i metylacji
+
+## comparison table
+
+```{r, eval = FALSE}
+comparison <- calculate_comparison_table(
+  data1 = BRCA_exp[,!(colnames(BRCA_exp)=="SUBTYPE")], 
+  data2 = BRCA_met_gen, 
+  condition1 = condition_exp, 
+  condition2 = condition_met,
+  test1 = "nbinom2", 
+  test2 = "ttest"
+)
+```
+
+```{r, echo = TRUE}
+head(comparison)
+```
+
+## Volcano plot
+```{r}
+plot_volcanoes(
+  data.m = BRCA_met[,!(colnames(BRCA_met) == "SUBTYPE")],
+  data.e = BRCA_exp[,!(colnames(BRCA_exp) == "SUBTYPE")],
+  condition.m = condition_met, 
+  condition.e = condition_exp, 
+  gene = "CACNA1G", 
+  test.m = test_met, 
+  test.e = test_exp,
+  values=TRUE
+)
+```
+
+## Gen
+
+```{r}
+plot_gene(
+  data.m = BRCA_met, 
+  data.e = BRCA_exp, 
+  condition.m = condition_met, 
+  condition.e = condition_exp, 
+  gene = "CACNA1G",
+  show.gene = TRUE,
+  observ = TRUE,
+  islands = TRUE
+)
+```
+
+#Co dalej?
+
+##GitHub
+
+- https://github.com/geneticsMiNIng/MLGenSig
+- https://github.com/MI2DataLab
