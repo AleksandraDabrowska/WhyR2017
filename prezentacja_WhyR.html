@@ -518,7 +518,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section></section>
 <section><section id="ekspresja" class="titleslide slide level1"><h1>Ekspresja</h1></section><section id="testy" class="slide level2">
 <h2>Testy</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(BRCA_exp)[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">BRCA_exp[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</code></pre></div>
 <pre><code>                             SUBTYPE AANAT AARSD1 AATF AATK
 TCGA-A1-A0SB-01A-11R-A144-07  Normal     9   2354 2870  317
 TCGA-A1-A0SD-01A-11R-A115-07    LumA     2   1846 5656  312
@@ -539,7 +539,7 @@ TCGA-A1-A0SG-01A-11R-A144-07    LumA     1   2273 3473   92</code></pre>
 6  GSG2  1.405039 3.527773e-21  278.2128   629.3396   464.31</code></pre>
 </section><section id="volcano-plot" class="slide level2">
 <h2>Volcano plot</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot_volcano</span>(res_exp, <span class="dt">line =</span> <span class="fl">0.05</span>, <span class="dt">names =</span> <span class="fl">0.000000001</span>, <span class="dt">fold_line =</span> <span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot_volcano</span>(<span class="dt">data =</span> res_exp, <span class="dt">line =</span> <span class="fl">0.05</span>, <span class="dt">names =</span> <span class="fl">0.000000001</span>, <span class="dt">fold_line =</span> <span class="dv">2</span>)</code></pre></div>
 <p><img src="prezentacja_WhyR_files/figure-revealjs/unnamed-chunk-6-1.png" width="2880" /></p>
 </section></section>
 <section><section id="metylacja" class="titleslide slide level1"><h1>Metylacja</h1></section><section id="agregacja-sond-do-genow" class="slide level2">

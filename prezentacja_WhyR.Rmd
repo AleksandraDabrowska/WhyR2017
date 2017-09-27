@@ -62,7 +62,7 @@ load("data_pres.Rda")
 ## Testy
 
 ```{r}
-head(BRCA_exp)[1:5,1:5]
+BRCA_exp[1:5,1:5]
 ```
 
 ```{r, eval = FALSE}
@@ -80,7 +80,7 @@ head(res_exp)
 ## Volcano plot
 
 ```{r}
-plot_volcano(res_exp, line = 0.05, names = 0.000000001, fold_line = 2)
+plot_volcano(data = res_exp, line = 0.05, names = 0.000000001, fold_line = 2)
 ```
 
 # Metylacja
