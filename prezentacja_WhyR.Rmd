@@ -15,7 +15,7 @@ output:
     
 ---
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, warning = FALSE}
 library(knitr)
 opts_chunk$set(
 	comment = "",
@@ -30,6 +30,12 @@ opts_chunk$set(
 	eval = TRUE
 )
 ```
+  
+```{r, echo = FALSE}
+library(MLExpResso)
+library(MLExpRessoData)
+load("data_pres.Rda")
+```  
   
 # Grupa MI<sup>2</sup> i MI<sup>2</sup> DataLab {data-background="img/MI2.PNG"}
   
@@ -70,28 +76,43 @@ opts_chunk$set(
 
 
 
-# Ekspresja
+# Wywołania funkcji
 
-## h
+## Ekspresja
 
-```{r, echo = FALSE}
-library(MLExpResso)
-library(MLExpRessoData)
-```
 
-```{r, echo=FALSE}
+
+```{r}
 head(BRCA_exp)[1:5,1:5]
 ```
 
-```{r, echo=FALSE}
-condition_exp <- ifelse(BRCA_exp$SUBTYPE == "LumA", "LumA", "other")
-res_exp <- calculate_test(
+```{r, eval = FALSE}
+calculate_test(
   data = BRCA_exp[,!(colnames(BRCA_exp) == "SUBTYPE")], 
   condition = condition_exp, 
   test = "lrt"
 )
+```
+
+```{r, echo = FALSE}
 head(res_exp)
 ```
 
+## Volcano plot
 
+```{r}
+plot_volcano(res_exp, line = 0.05, names = 0.000000001, fold_line = 2)
+```
 
+## Metylacja
+
+```{r}
+BRCA_met[1:5, 1:4]
+```
+
+```{r}
+BRCA_met_gen <- aggregate_probes(data = BRCA_met) 
+BRCA_met_gen[1:5, 1:4]
+```
+
+## Methylation path

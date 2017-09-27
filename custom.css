@@ -1,5 +1,5 @@
 body {
-    background-color: #4a3c89;
+    background-color: #ffffff;
 }
 
 
@@ -10,7 +10,7 @@ body {
 .reveal h5,
 .reveal h6{
   	margin: 0 0 20px 0;
-	color: #fff;
+	color: #4a3c89;
 	font-family: Gill Sans MT;
 	font-weight: normal;
   	line-height: 1.2;
