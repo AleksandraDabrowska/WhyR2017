@@ -62,15 +62,11 @@ load("data_pres.Rda")
 ## Testowanie
 
 ```{r}
-BRCA_exp[1:5,1:5]
+BRCA_exp[1:5, 1:5]
 ```
 
 ```{r, eval = FALSE}
-calculate_test(
-  data = BRCA_exp[,!(colnames(BRCA_exp) == "SUBTYPE")], 
-  condition = condition_exp, 
-  test = "lrt"
-)
+calculate_test(data, condition, test)
 ```
 
 ```{r, echo = FALSE}
@@ -96,8 +92,15 @@ plot_volcano(data, line, names, fold_line)
 BRCA_met[1:5, 1:4]
 ```
 
-```{r}
+```{r, echo=FALSE}
 BRCA_met_gen <- aggregate_probes(data = BRCA_met) 
+```
+
+```{r, eval=FALSE}
+BRCA_met_gen <- aggregate_probes(data) 
+```
+
+```{r}
 BRCA_met_gen[1:5, 1:4]
 ```
 
@@ -120,12 +123,16 @@ plot_methylation_path(data, condition, gene, show.gene, observ)
 <img src="img/path1.PNG" height='400'>
 
 ## Testowanie
-```{r, eval = FALSE}
+```{r, eval = FALSE, echo=FALSE}
 calculate_test(
   data = BRCA_met_gen, 
   condition = condition_met,
   test = "ttest"
 )
+```
+
+```{r, eval = FALSE}
+calculate_test(data, condition, test)
 ```
 
 ```{r, echo = FALSE}
@@ -137,14 +144,8 @@ head(res_met)[1:5, 1:5]
 ## Tabela porównań
 
 ```{r, eval = FALSE}
-comparison <- calculate_comparison_table(
-  data1 = BRCA_exp[,!(colnames(BRCA_exp)=="SUBTYPE")], 
-  data2 = BRCA_met_gen, 
-  condition1 = condition_exp, 
-  condition2 = condition_met,
-  test1 = "nbinom2", 
-  test2 = "ttest"
-)
+comparison <- calculate_comparison_table(data1, data2, condition1, 
+  condition2, test1, test2)
 ```
 
 ```{r, echo = TRUE}

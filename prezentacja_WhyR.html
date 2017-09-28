@@ -518,18 +518,14 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section></section>
 <section><section id="ekspresja" class="titleslide slide level1"><h1>Ekspresja</h1></section><section id="testowanie" class="slide level2">
 <h1>Testowanie</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">BRCA_exp[<span class="dv">1</span>:<span class="dv">5</span>,<span class="dv">1</span>:<span class="dv">5</span>]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">BRCA_exp[<span class="dv">1</span>:<span class="dv">5</span>, <span class="dv">1</span>:<span class="dv">5</span>]</code></pre></div>
 <pre><code>                             SUBTYPE AANAT AARSD1 AATF AATK
 TCGA-A1-A0SB-01A-11R-A144-07  Normal     9   2354 2870  317
 TCGA-A1-A0SD-01A-11R-A115-07    LumA     2   1846 5656  312
 TCGA-A1-A0SE-01A-11R-A084-07    LumA    11   3391 9522  736
 TCGA-A1-A0SF-01A-11R-A144-07    LumA     0   2169 4625  169
 TCGA-A1-A0SG-01A-11R-A144-07    LumA     1   2273 3473   92</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">calculate_test</span>(
-  <span class="dt">data =</span> BRCA_exp[,!(<span class="kw">colnames</span>(BRCA_exp) ==<span class="st"> &quot;SUBTYPE&quot;</span>)], 
-  <span class="dt">condition =</span> condition_exp, 
-  <span class="dt">test =</span> <span class="st">&quot;lrt&quot;</span>
-)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">calculate_test</span>(data, condition, test)</code></pre></div>
 <pre><code>     id log2.fold         pval mean_LumA mean_other     mean
 1 AURKB  2.339920 3.191000e-32  539.0426  2323.8868  1485.01
 2  CBX2  2.895062 2.834335e-26  632.5106  4296.6038  2574.48
@@ -551,8 +547,8 @@ TCGA-A2-A04N-01A-11D-A112-05    LumA 0.01437552  0.7359370 0.008752293
 TCGA-A2-A04P-01A-31D-A032-05   Basal 0.01360124  0.6967802 0.009442039
 TCGA-A2-A04Q-01A-21D-A032-05   Basal 0.01525656  0.5341244 0.014674247
 TCGA-A2-A04T-01A-21D-A032-05   Basal 0.01167384  0.7378100 0.012251559</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">BRCA_met_gen &lt;-<span class="st"> </span><span class="kw">aggregate_probes</span>(<span class="dt">data =</span> BRCA_met) 
-BRCA_met_gen[<span class="dv">1</span>:<span class="dv">5</span>, <span class="dv">1</span>:<span class="dv">4</span>]</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">BRCA_met_gen &lt;-<span class="st"> </span><span class="kw">aggregate_probes</span>(data) </code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">BRCA_met_gen[<span class="dv">1</span>:<span class="dv">5</span>, <span class="dv">1</span>:<span class="dv">4</span>]</code></pre></div>
 <pre><code>                                 AANAT    AARSD1       AATF      AATK
 TCGA-A1-A0SD-01A-11D-A112-05 0.7148533 0.8625816 0.24294092 0.7835302
 TCGA-A2-A04N-01A-11D-A112-05 0.5850106 0.8355825 0.21367129 0.8466190
@@ -565,11 +561,7 @@ TCGA-A2-A04T-01A-21D-A032-05 0.6010397 0.7739978 0.02501599 0.6276399</code></pr
 <p><img src="img/path1.png" height='400'></p>
 </section><section id="testowanie-1" class="slide level2">
 <h1>Testowanie</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">calculate_test</span>(
-  <span class="dt">data =</span> BRCA_met_gen, 
-  <span class="dt">condition =</span> condition_met,
-  <span class="dt">test =</span> <span class="st">&quot;ttest&quot;</span>
-)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">calculate_test</span>(data, condition, test)</code></pre></div>
 <pre><code>       id   log2.fold         pval mean_LumA mean_other
 1   ICAM2 -0.15151320 3.754116e-17 0.2547275  0.4062407
 2    RILP -0.05073691 2.575168e-13 0.3079069  0.3586438
@@ -579,14 +571,8 @@ TCGA-A2-A04T-01A-21D-A032-05 0.6010397 0.7739978 0.02501599 0.6276399</code></pr
 </section></section>
 <section><section id="integracja-ekspresji-i-metylacji" class="titleslide slide level1"><h1>Integracja ekspresji i metylacji</h1></section><section id="tabela-porownan" class="slide level2">
 <h1>Tabela porównań</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">comparison &lt;-<span class="st"> </span><span class="kw">calculate_comparison_table</span>(
-  <span class="dt">data1 =</span> BRCA_exp[,!(<span class="kw">colnames</span>(BRCA_exp)==<span class="st">&quot;SUBTYPE&quot;</span>)], 
-  <span class="dt">data2 =</span> BRCA_met_gen, 
-  <span class="dt">condition1 =</span> condition_exp, 
-  <span class="dt">condition2 =</span> condition_met,
-  <span class="dt">test1 =</span> <span class="st">&quot;nbinom2&quot;</span>, 
-  <span class="dt">test2 =</span> <span class="st">&quot;ttest&quot;</span>
-)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">comparison &lt;-<span class="st"> </span><span class="kw">calculate_comparison_table</span>(data1, data2, condition1, 
+  condition2, test1, test2)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(comparison)</code></pre></div>
 <pre><code>       id nbinom2.log2.fold nbinom2.pval ttest.log2.fold   ttest.pval geom.mean.rank no.probes
 59  AURKB          2.360714 1.704243e-37    0.0017389592 2.077252e-01   1.881527e-19         2
