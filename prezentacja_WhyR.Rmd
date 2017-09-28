@@ -39,7 +39,7 @@ load("data_pres.Rda")
   
 # Grupa MI<sup>2</sup> i MI<sup>2</sup> DataLab {data-background="img/MI2_z_logiem.PNG"}
   
-# NCN Opus grant 2016/21/B/ST6/02176
+# "MLGenSig:                  Machine Learning Methods for building the Integrated Genetic Signatures"                               NCN Opus grant 2016/21/B/ST6/02176
 
 # Nazwa
 ## {data-background="prezentacje_biala_fioletowa/Slajd8.PNG"}
@@ -59,7 +59,7 @@ load("data_pres.Rda")
 
 # Ekspresja
 
-## Testy
+## Testowanie
 
 ```{r}
 BRCA_exp[1:5,1:5]
@@ -79,9 +79,15 @@ head(res_exp)
 
 ## Volcano plot
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 plot_volcano(data = res_exp, line = 0.05, names = 0.000000001, fold_line = 2)
 ```
+
+```{r, eval= FALSE}
+plot_volcano(data, line, names, fold_line)
+```
+
+<img src="img/volcano1.PNG" height='400'>
 
 # Metylacja
 
@@ -97,7 +103,7 @@ BRCA_met_gen[1:5, 1:4]
 
 ## Methylation path
 
-```{r}
+```{r, eval=FALSE, echo=FALSE}
 plot_methylation_path(
   data = BRCA_met, 
   condition = condition_met, 
@@ -106,6 +112,12 @@ plot_methylation_path(
   observ = TRUE
 )
 ```
+
+```{r,eval=FALSE}
+plot_methylation_path(data, condition, gene, show.gene, observ)
+```
+
+<img src="img/path1.PNG" height='400'>
 
 ## Testowanie
 ```{r, eval = FALSE}
@@ -122,7 +134,7 @@ head(res_met)[1:5, 1:5]
 
 # Integracja ekspresji i metylacji
 
-## comparison table
+## Tabela porównań
 
 ```{r, eval = FALSE}
 comparison <- calculate_comparison_table(
@@ -139,8 +151,15 @@ comparison <- calculate_comparison_table(
 head(comparison)
 ```
 
-## Volcano plot
-```{r}
+## Volcano plots
+
+```{r, eval=FALSE}
+plot_volcanoes(data.m, data.e, 
+               condition.m, condition.e, 
+               gene, test.m, test.e)
+```
+
+```{r, eval=FALSE, echo=FALSE}
 plot_volcanoes(
   data.m = BRCA_met[,!(colnames(BRCA_met) == "SUBTYPE")],
   data.e = BRCA_exp[,!(colnames(BRCA_exp) == "SUBTYPE")],
@@ -153,9 +172,11 @@ plot_volcanoes(
 )
 ```
 
-## Gen
+<img src="img/volcano2.png" height="400">
 
-```{r}
+## Informacje dla wybranego genu
+
+```{r, eval=FALSE, echo=FALSE}
 plot_gene(
   data.m = BRCA_met, 
   data.e = BRCA_exp, 
@@ -167,6 +188,17 @@ plot_gene(
   islands = TRUE
 )
 ```
+
+```{r, eval=FALSE}
+plot_gene(data.m, data.e, 
+               condition.m, condition.e, 
+               gene, show.gene, observ, islands)
+```
+
+<img src="img/path2.png" height="400">
+
+##{data-background="img/pomoce.PNG"}
+
 
 #Co dalej?
 
